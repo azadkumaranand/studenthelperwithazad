@@ -1,25 +1,4 @@
-<?php
-require_once "config.php";
-    if($_SERVER['REQUEST_METHOD']=="POST"){
-        $name = $_POST['name'];
-        $phone = $_POST['phone'];
-        $email = $_POST['email'];
-        $type_dress = $_POST['type_dress'];
-        $buy_rent = $_POST['buy_rent'];
-        $hostel = $_POST['hostel'];
-        $stmt = $conn->prepare("insert into users_of_dress(name, phone, email, type_dress, buy_rent, hostel)
-        values(?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssss", $name, $phone, $email, $type_dress, $buy_rent, $hostel);
-        if($stmt->execute()){
-            header("location: oderplace.php");
-        }
-        else{
-            echo "Sorry! something went wrong please try again";
-        }
-        $stmt->close();
-        $conn->close();
-    }
-?>
+
 
 <!doctype html>
 <html lang="en">
